@@ -2,17 +2,17 @@
 let product = [];
 
 /* J'utilise une fonction asynchrone pour récupèrer mes données dans l'API */
-async function fetchApi() {
+fetchApi = async  () => {
     await fetch("http://localhost:3000/api/products/")
     .then((res) => res.json())
     .then((data) => (product = data));
 }
 
 /* J'utilise une fonction asynchrone et je crée une boucle avec for pour récupèrer mes informations et les afficher dans les propriétés HTML avec kanapArticle(); */
-async function kanapArticle() {
+kanapArticle = async () => {
     await fetchApi();
     let items = document.getElementById("items");
-
+    
     for (let i = 0; i < product.length; i++) {
         let link = document.createElement("a");
         let article = document.createElement("article");
